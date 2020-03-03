@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">APLICACION DE LOCALIZACION Y RUTAS</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">bIENVENIDO</string>
+
+    <string name="swipe_left_for_register">DESLIZA PARA REGISTRARTE</string>
+    <string name="login">Login</string>
+    <string name="password">cONTRASEÑA</string>
+    <string name="username">Username</string>
+    <string name="tag">AHORRANDO TIEMPO Y DINERO</string>
+    <string name="swipe_right_for_login">DESLIZA PARA ACCEDER</string>
+    <string name="register">Register</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="your_name">nOMBRE Completo</string>
+
+    <!--main menu-->
+    <string name="main_division">Menu</string>
+    <string name="tours_menu">Mis Recorridos</string>
+    <string name="record_tours_menu">Registrar Recorridos</string>
+
+    <!--Drawer-->
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+
+    <!--Dexter-->
+    <string name="denied_permission_permanently">No puede acceder a esta funcionalidad, ha negado los permisos. Debe activar los permisos manualmente</string>
+    <string name="permission_location_error">No ha concedido permisos para su Ubicación</string>\
+
+    <!--Record Tours-->
+    <string name="start_tour">Start</string>
+    <string name="finish_tour">Finish</string>
+
+    <!--Location-->
+    <string name="error_play_services">Debe actualizar o instalar Google Play Services</string>
+    <string name="error_not_available_play_services">Este dispositivo no Soporta Google Play Services</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="loading_text">Loading…</string>
+
+    <string name="initial_time">00:00</string>
+</resources>
