@@ -1,12 +1,13 @@
 package tracking.com.trackingandroid.data;
 
-import android.util.Log;
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.Response;
 import tracking.com.trackingandroid.data.local.PreferencesHelper;
 import tracking.com.trackingandroid.data.model.LoginUser;
 import tracking.com.trackingandroid.data.model.Tour;
+import tracking.com.trackingandroid.data.model.User;
 import tracking.com.trackingandroid.data.remote.TrackingService;
 
 /**
@@ -35,6 +36,14 @@ public class DataManager {
 
     public Observable<Tour> createTour(Tour tour) {
         return trackingService.createTour(tour);
+    }
+
+    public Observable<List<Tour>> getTours() {
+        return trackingService.getTours();
+    }
+
+    public Observable<User> registerUser(User user) {
+        return trackingService.registerUser(user);
     }
 
     public void putString(String key, String value) {

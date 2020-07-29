@@ -1,10 +1,14 @@
 package tracking.com.trackingandroid.data.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Tour {
+public class Tour implements Serializable {
+    @Expose
+    private Integer tourId;
     @Expose
     private String timeStart;
     @Expose
@@ -16,6 +20,14 @@ public class Tour {
         this.timeStart = timeStart;
         this.timeFinish = timeFinish;
         this.locations = locations;
+    }
+
+    public Integer getTourId() {
+        return tourId;
+    }
+
+    public void setTourId(Integer tourId) {
+        this.tourId = tourId;
     }
 
     public String getTimeStart() {
