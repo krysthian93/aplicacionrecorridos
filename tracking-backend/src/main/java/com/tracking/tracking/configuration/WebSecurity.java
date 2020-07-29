@@ -12,10 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurity extends WebSecurityConfigurerAdapter {
+public class WebSecurity extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     @Autowired
     @Qualifier("userService")
@@ -36,6 +38,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/login" ).permitAll() //permitimos el acceso a /login a cualquiera
+                .antMatchers("/authenticate/register" ).permitAll()
                 .anyRequest().authenticated() //cualquier otra peticion requiere autenticacion
                 .and()
                 // Las peticiones /login pasaran previamente por este filtro
@@ -44,7 +47,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
                 // Las demás peticiones pasarán por este filtro para validar el token
                 .addFilterBefore(new JwtFilter(),
-                        UsernamePasswordAuthenticationFilter.class);
+                        UsernamePasswordAuthenticationFilter.class).cors();
     }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedMethods("GET", "POST").exposedHeaders("Authorization");
+    }
+
 
 }
